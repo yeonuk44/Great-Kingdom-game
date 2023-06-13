@@ -1,5 +1,5 @@
 .othello {
-  width: 640px;
+  width: 720px;
   margin: 0 auto;
 }
 .current {
@@ -16,7 +16,7 @@
 .row {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
 }
 .square {
   border: 1px solid #000;
@@ -28,13 +28,16 @@
   &::after {
     display: inline-block;
     vertical-align: text-bottom;
-    content: '';
+    content: "";
   }
 
   &.white::after {
-    content: '⚪️';
+    content: "⚪️";
   }
   &.black::after {
-    content: '⚫️';
+    content: "⚫️";
+  }
+  &.blue::after {
+    content: "🔵";
   }
 }

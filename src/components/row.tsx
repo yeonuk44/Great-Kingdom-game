@@ -1,5 +1,5 @@
-import { ValueOrEmpty } from '../types'
-import Square from './square'
+import { ValueOrEmpty } from "../types";
+import Square from "./square";
 
 const Row = ({
   cols,
@@ -7,10 +7,10 @@ const Row = ({
   handleClickSquare,
   isOver,
 }: {
-  cols: ValueOrEmpty[]
-  rowIndex: number
-  handleClickSquare: (index: number) => void
-  isOver: boolean
+  cols: ValueOrEmpty[];
+  rowIndex: number;
+  handleClickSquare: (index: number) => void;
+  isOver: boolean;
 }) => {
   return (
     <div className="row">
@@ -18,11 +18,13 @@ const Row = ({
         <Square
           value={col}
           key={`${rowIndex}_${i}`}
-          handleClickSquare={isOver ? undefined : () => handleClickSquare(rowIndex * 8 + i)}
+          handleClickSquare={
+            isOver ? undefined : () => handleClickSquare(rowIndex * 9 + i)
+          }
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Row
+export default Row;
