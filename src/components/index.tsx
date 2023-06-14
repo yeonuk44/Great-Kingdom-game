@@ -24,22 +24,35 @@ const Othello = () => {
 
   const handleClickSquare = (index: number) => {
     const [row, col] = [Math.floor(index / 9), index % 9];
-    const flipTargets =
-      !board[row][col] && getFlipTargets(board, turn, { row, col });
-    if (!flipTargets || !flipTargets.length) {
-      // alert("그 곳엔 둘 수 없어요...ㅠ");
+    if (board[row][col]) {
+      alert("그 곳에는 이미 돌이 놓여 있습니다.");
       return;
     }
 
     setBoard((prev) => {
       const newBoard = prev.map((r) => [...r]);
-      flipTargets.forEach(([r, c]) => {
-        newBoard[r][c] = turn;
-      });
       newBoard[row][col] = turn;
       return newBoard;
     });
+
     setTurn((prev) => (prev === "white" ? "black" : "white"));
+    // const [row, col] = [Math.floor(index / 9), index % 9];
+    // const flipTargets =
+    //   !board[row][col] && getFlipTargets(board, turn, { row, col });
+    // if (!flipTargets || !flipTargets.length) {
+    //   alert("그 곳엔 둘 수 없어요...ㅠ");
+    //   return;
+    // }
+
+    // setBoard((prev) => {
+    //   const newBoard = prev.map((r) => [...r]);
+    //   flipTargets.forEach(([r, c]) => {
+    //     newBoard[r][c] = turn;
+    //   });
+    //   newBoard[row][col] = turn;
+    //   return newBoard;
+    // });
+    // setTurn((prev) => (prev === "white" ? "black" : "white"));
   };
 
   useEffect(() => {
